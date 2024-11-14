@@ -40,6 +40,17 @@ https://googlechromelabs.github.io/chrome-for-testing/
 - copia el archivo llamado chromedriver o chromedriver.exe 
 - pegalo en la carpeta del proyecto donde anteriormente clonaste este repositorio
 
+# paso 5
+- ejecuta esto en la linea de comandos
+
+```sh
+    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+posteriormente 
+```sh
+    .\Setup_Windows.ps1
+```
+
 # paso 5 
 - ejecuta el archivo 
 ```sh
