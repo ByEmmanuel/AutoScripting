@@ -40,7 +40,8 @@ https://googlechromelabs.github.io/chrome-for-testing/
 - copia el archivo llamado chromedriver o chromedriver.exe 
 - pegalo en la carpeta del proyecto donde anteriormente clonaste este repositorio
 
-# paso 5
+# paso 5 
+- Si estas en windows
 - ejecuta esto en la linea de comandos
 
 ```sh
@@ -49,6 +50,13 @@ https://googlechromelabs.github.io/chrome-for-testing/
 posteriormente 
 ```sh
     .\Setup_Windows.ps1
+```
+
+- Si estas en MacOS
+- haz ejecutable el archivo e ingresa tu contraseña si te lo pide
+
+```sh
+    sudo chmod +x setup_env.sh
 ```
 
 # paso 5 
