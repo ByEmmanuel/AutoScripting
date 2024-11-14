@@ -3,9 +3,8 @@ import subprocess
 import sys
 
 def crearEntornoVirtual():
-    # Paso 1: Crear el entorno virtual
-    nombre_entorno = "env"
-    subprocess.run([sys.executable, "-m", "venv", nombre_entorno])
+    
+    
 
     # Paso 2: Instalar las dependencias desde el archivo requirements.txt
     if os.path.exists("requirements.txt"):
@@ -14,7 +13,7 @@ def crearEntornoVirtual():
             subprocess.run([os.path.join(nombre_entorno, "Scripts", "pip"), "install", "-r", "requirements.txt"])
             subprocess.run(".\env\Scripts\activate", shell=True)
         else:  # Para macOS y Linux
-            subprocess.run([os.path.join(nombre_entorno, "bin", "pip"), "install", "-r", "requirements.txt"])
+            subprocess.run([os.path.join(".venv", "bin", "pip"), "install", "-r", "requirements.txt"])
 
     else:
         print("No se encontró el archivo requirements.txt. Por favor, asegúrate de que exista.")
@@ -22,9 +21,9 @@ def crearEntornoVirtual():
     # Paso 3: Congelar las dependencias instaladas en requirements.txt
     # Usamos subprocess.run con captura de salida para evitar redirección incorrecta con '>'
     if os.name == "nt":  # Para Windows
-        result = subprocess.run([os.path.join(nombre_entorno, "Scripts", "pip"), "freeze"], capture_output=True, text=True)
+        result = subprocess.run([os.path.join(".venv", "Scripts", "pip"), "freeze"], capture_output=True, text=True)
     else:  # Para macOS y Linux
-        result = subprocess.run([os.path.join(nombre_entorno, "bin", "pip"), "freeze"], capture_output=True, text=True)
+        result = subprocess.run([os.path.join(".venv", "bin", "pip"), "freeze"], capture_output=True, text=True)
     
     # Escribir la salida en requirements.txt
     with open("requirements.txt", "w") as f:

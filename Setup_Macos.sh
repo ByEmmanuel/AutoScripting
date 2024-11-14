@@ -25,10 +25,10 @@ else
 fi
 
 # Crear un entorno virtual
-if [ ! -d "venv" ]; then
+if [ ! -d ".venv" ]; then
     echo "Creando el entorno virtual en el directorio actual..."
-    python3 -m venv venv
-    echo "Entorno virtual creado en la carpeta 'venv'."
+    python3 -m .venv .venv
+    echo "Entorno virtual creado en la carpeta '.venv'."
 else
     echo "El entorno virtual ya existe."
 fi

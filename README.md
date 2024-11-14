@@ -56,7 +56,7 @@ posteriormente
 - haz ejecutable el archivo e ingresa tu contraseña si te lo pide
 
 ```sh
-    sudo chmod +x setup_env.sh
+    sudo chmod +x Setup_Macos.sh
 ```
 
 # paso 5 
