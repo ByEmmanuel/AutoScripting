@@ -3,13 +3,26 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+import platform
 
 
 # Configura el WebDriver
 options = webdriver.ChromeOptions()   
 options.add_argument("--start-maximized")  # Inicia el navegador en pantalla completa
 
-service = webdriver.chrome.service.Service('chromedriver-mac-arm64/chromedriver')  # Path del `chromedriver`
+sistema = platform.system()
+
+if sistema == "Windows":
+    service = webdriver.chrome.service.Service('Chromedriver/chromedriver.exe')      
+elif sistema == "Darwin":
+    service = webdriver.chrome.service.Service('Chromedriver/chromedriver')  # Path del `chromedriver`    
+elif sistema == "Linux":
+    service = webdriver.chrome.service.Service('Chromedriver/chromedriver')  # Path del `chromedriver`    
+else:
+    print("Sistema operativo no identificado.")
+
+
+
 
 # Inicializa el controlador Chrome con el servicio y las opciones
 driver = webdriver.Chrome(service=service, options=options)
