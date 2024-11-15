@@ -1,29 +1,25 @@
-# Verificar si Python está instalado
-if (!(Get-Command python3 -ErrorAction SilentlyContinue)) {
-    Write-Output "Python no está instalado. Procediendo con la instalación..."
+# Ruta de instalación de Python
+$pythonInstallerUrl = "https://www.python.org/ftp/python/3.10.9/python-3.10.9-amd64.exe" # Cambia a la versión que prefieras
+$installerPath = "$env:TEMP\python_installer.exe"
 
-    # Instalar Chocolatey si no está disponible
-    if (!(Get-Command choco -ErrorAction SilentlyContinue)) {
-        Set-ExecutionPolicy Bypass -Scope Process -Force
-        [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
-        Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-    }
+# Descargar el instalador de Python
+Invoke-WebRequest -Uri $pythonInstallerUrl -OutFile $installerPath
 
-    # Instalar Python usando Chocolatey
-    choco install python -y
+# Instalar Python en modo silencioso
+Start-Process -FilePath $installerPath -ArgumentList "/quiet InstallAllUsers=1 PrependPath=1" -Wait
+
+# Verificar si Python se instaló correctamente
+if (!(Get-Command python -ErrorAction SilentlyContinue)) {
+    Write-Host "Python no se instaló correctamente."
+    exit 1
 } else {
-    Write-Output "Python ya está instalado."
+    Write-Host "Python instalado correctamente."
 }
 
 # Crear el entorno virtual en el directorio actual
-if (!(Test-Path "venv")) {
-    Write-Output "Creando el entorno virtual en el directorio actual..."
-    python -m venv venv
-    Write-Output "Entorno virtual creado en la carpeta 'venv'."
-} else {
-    Write-Output "El entorno virtual ya existe."
-}
+$venvPath = ".\venv"
+python -m venv $venvPath
 
-# Instrucción para activar el entorno virtual
-Write-Output "Para activar el entorno virtual, usa el siguiente comando:"
-Write-Output ".\venv\Scripts\Activate"  # Activar en Windows
+Write-Host "Entorno virtual creado en $venvPath"
+Write-Host "Para activarlo, ejecuta:"
+Write-Host ".\$venvPath\Scripts\Activate"
