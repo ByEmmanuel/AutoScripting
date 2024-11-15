@@ -21,27 +21,8 @@ Tener instalado en tu sistema los siguientes elementos
     https://github.com/ByEmmanuel/AutoScripting
 ```
 
-# Paso 3
-- Verifica tu version de google Chrome
-- Instalar los drivers de Chrome
-- Instala el archivo copiando y pegando los links de esta pagina en tu navegador, correspondiente a tu version de google chrome
-
-```sh
-    chrome://settings/help
-```
-<br>
-<br>
-https://googlechromelabs.github.io/chrome-for-testing/
-
-- busca el apartado de "chromedriver" correspondiente a tu version, copia el link y pegalo en otra pestaña nueva
-
-# paso 4
-- una vez descargado el archivo, descomprimelo
-- copia el archivo llamado chromedriver o chromedriver.exe 
-- pegalo en la carpeta del proyecto donde anteriormente clonaste este repositorio
-
-# paso 5 
-- Si estas en windows
+# paso 3
+### Si estas en windows
 - ejecuta esto en la linea de comandos
 
 ```sh
@@ -52,14 +33,46 @@ posteriormente
     .\Setup_Windows.ps1
 ```
 
-- Si estas en MacOS
+# Importante
+- Ejecuta el comando que te devolvio la terminal copiandolo y pegandolo
+deberia ser algo tal que:
+- "Entorno virtual creado en ... "
+- Para activarlo ejecuta: 
+
+### Si estas en MacOS
 - haz ejecutable el archivo e ingresa tu contraseña si te lo pide
 
 ```sh
-    sudo chmod +x Setup_Macos.sh
+    sudo chmod +x Setup_Macos.sh && ./Setup_Macos.sh
 ```
 
-# paso 5 
+# Paso 4
+- Ejecuta el siguiente comando
+```sh
+    python Init.py
+```
+
+# Paso 5
+- Ten Instalada la version mas reciente de google chrome
+- Instalar los drivers de Chrome
+- Instala el archivo copiando y pegando los links de esta pagina en tu navegador, correspondiente a tu version de google chrome
+
+```sh
+    chrome://settings/help
+```
+<br>
+<br>
+https://googlechromelabs.github.io/chrome-for-testing/
+
+- busca el apartado de "chromedriver" correspondiente a tu version y sistema operativo, copia el link y pegalo en otra pestaña nueva
+- si tu version de chrome no aparece en el listado, intenta una mas cercana a tu version 
+
+# paso 6
+- una vez descargado el archivo, descomprimelo
+- copia el archivo llamado chromedriver o chromedriver.exe 
+- pegalo en la carpeta del proyecto que se llama "Chromedriver"
+
+# paso 7 
 - ejecuta el archivo 
 ```sh
     python AutoCompletions.py

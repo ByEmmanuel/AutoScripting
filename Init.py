@@ -5,7 +5,7 @@ import platform
 def crearEntornoVirtual():
     
     sistema = platform.system()
-    nombre_carpeta = "chromedriver"
+    nombre_carpeta = "Chromedriver"
 
     # Ruta de la carpeta (directorio actual)
     ruta_carpeta = os.path.join(os.getcwd(), nombre_carpeta)
